@@ -8,5 +8,12 @@
 
 export default {}
 
-</script>
+</script >
 
+
+// basic styling in vue js
+<style scoped>
+h1{
+    color:red;
+}
+</style>

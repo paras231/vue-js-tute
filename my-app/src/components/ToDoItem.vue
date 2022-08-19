@@ -8,10 +8,13 @@
 <script>
 import  uniqueId from 'lodash.uniqueid';
 export default {
+
+    // passing props
     props: {
         label: { required: true, type: String },
         done: { default: false, type: Boolean }
     },
+    // binding the state
     data() {
         return {
             isDone: this.done,
