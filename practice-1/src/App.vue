@@ -1,20 +1,20 @@
 <template>
   <div>
-    <!-- message passed as props -->
-    <FirstTest message='hi' />
-    <Header />
+
+    <EventHandler />
+    <FetchData />
   </div>
 
 </template>
 
 <script>
-import FirstTest from './components/FirstTest.vue';
-import Header from './components/HeaderComponent.vue';
+import EventHandler from './components/EventHandlerPractice.vue';
+import FetchData from './components/FetchData.vue';
 export default {
   name: 'App',
   components: {
-    FirstTest,
-    Header
+    EventHandler,
+    FetchData
   }
 }
 </script>
