@@ -1,24 +1,18 @@
 <template>
-  <div class="nav">
-    <router-link class="link-style" to="/"> Home </router-link>
-    <router-link class="link-style" to="/about"> About </router-link>
-    <router-view />
-  </div>
+  <Navbar />
+  <router-view />
 </template>
 
-<script></script>
+<script>
+import Navbar from "./components/Navbar.vue";
+export default {
+  name: "App",
+  components: Navbar,
+};
+</script>
 
-<style scoped>
+<style scoped lang="scss">
 .link-style {
-  color: red;
-  font-size: large;
-  font-weight: bold;
-  text-decoration: none;
-}
-.nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap:20vw;
+  color: green;
 }
 </style>
