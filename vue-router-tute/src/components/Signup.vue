@@ -4,15 +4,11 @@
     <form action="">
       <input type="text" placeholder="username" v-model="formData.username" />
       <input type="email" placeholder="Email" v-model="formData.email" />
-      <input
-        type="password"
-        placeholder="Password"
-        v-model="formData.password"
-      />
+      <input type="password" placeholder="Password" v-model="formData.password" />
       <p>Please Select Gender</p>
-      <input type="radio" v-model="formData.gender" />
+      <input type="radio" id="male" value="Male" v-model="formData.gender" />
       <label for="Male">Male</label>
-      <input type="radio" v-model="formData.gender" />
+      <input type="radio" id="female" value="Female" v-model="formData.gender" />
       <label for="Female">Female</label>
       <button type="submit">Submit</button>
     </form>
@@ -55,14 +51,17 @@ export default {
   align-items: center;
   margin-top: 2vmax;
 }
+
 form {
   display: flex;
   flex-direction: column;
   gap: 2vmax;
 }
+
 input {
   width: 13vmax;
 }
+
 button {
   width: 13vmax;
 }

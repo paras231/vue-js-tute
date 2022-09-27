@@ -3,6 +3,9 @@ import HomeComponent from "../components/HomeComponent.vue";
 import About from "../components/About.vue";
 import Contact from "../components/Contact.vue";
 import Signup from "../components/Signup.vue";
+import Register from "../components/Register.vue";
+import Form from "../components/Form.vue";
+
 const routes = [
   {
     path: "/",
@@ -23,6 +26,16 @@ const routes = [
     path: "/signup",
     name: "Signup",
     component: Signup,
+  },
+  {
+    path: "/register",
+    name: "Register",
+    component: Register,
+  },
+  {
+    path: "/form",
+    name: "Form",
+    component: Form,
   },
 ];
 
