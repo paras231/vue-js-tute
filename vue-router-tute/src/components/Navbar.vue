@@ -13,6 +13,9 @@
       <li>
         <router-link class="nav-item" to="/form">Form</router-link>
       </li>
+      <li>
+        <router-link class="nav-item" to="/api">Composition API</router-link>
+      </li>
     </ul>
   </div>
 </template>
