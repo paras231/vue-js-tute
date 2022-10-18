@@ -9,10 +9,27 @@
         </div>
         <button @click="increment">Increase</button>
         <span>{{state.count}}</span>
+        <button @click="awesome = !awesome">Click Me</button>
+        <h1 v-if="awesome">Vue is awesome</h1>
+
+
+        <h2 v-else>oh No</h2>
+        <!-- conditional class in vue -->
+        <!--  class .danger is applied when we click on the button toggle class -->
+        <p :class="{ danger:isActive}">hello world</p>
+        <button @click="isActive=!isActive">Toggle Class</button>
+        <!-- handeling input -->
+        <h1>{{message}}</h1>
+        <input type="text" v-model="message">
+
+        <div v-for="user in data" :key="user?.id">
+            <p v-if="data.length==0">Loading...</p>
+            <p v-else>{{user.title}}</p>
+        </div>
     </div>
 
-</template>
-
+</template> 
+ 
 <script setup >
 
 // while using setup ,we are actually using composition api so don't need to use export default.
@@ -21,6 +38,16 @@
 import Navbar from "./Navbar.vue";
 import { ref, reactive, computed, onMounted } from "vue";
 import axios from "axios";
+
+
+
+const data = ref([]);
+
+// working fetch logic
+onMounted(async () => {
+    const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
+    return data.value = res.data
+})
 
 const items = ref(["Apple", "Banana", "Guava", "Pineapple", "Cherry", "Grapes"])
 
@@ -42,25 +69,21 @@ const updatedMyarray = myArray.arr.concat("Username");
 console.log(updatedMyarray);// gives new updated array.
 
 
-// fetching data from api  ->
 
-let posts = reactive({
-    postsArray  :[]
-});
+const awesome = ref(false);
 
-const fetchPosts = async () => {
-    const response = await axios.get(
-        "https://jsonplaceholder.typicode.com/posts"
-    );
-    return  posts.postsArray.concat(response.data)  
-}
+const isActive = ref(false);
 
-
-fetchPosts();
-
-console.log(posts.postsArray);
+const message = ref("");
+const loading = ref(false);
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.danger {
+    color: red;
+}
 
+.error {
+    color: yellow;
+}
 </style>
