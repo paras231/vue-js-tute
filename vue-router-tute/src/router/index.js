@@ -6,6 +6,7 @@ import Signup from "../components/Signup.vue";
 import Register from "../components/Register.vue";
 import Form from "../components/Form.vue";
 import CompositionApi from "../components/CompositionApi.vue";
+import Test from "../components/Test.vue";
 
 const routes = [
   {
@@ -42,6 +43,11 @@ const routes = [
     path: "/api",
     name: "CompositionApi",
     component: CompositionApi,
+  },
+  {
+    path: "/test",
+    name: "Test",
+    component: Test,
   },
 ];
 

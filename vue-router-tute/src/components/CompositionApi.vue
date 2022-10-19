@@ -26,8 +26,14 @@
             <p v-if="data.length==0">Loading...</p>
             <p v-else>{{user.title}}</p>
         </div>
+
+
     </div>
 
+    <div>
+        <Test message="Hello this is test page"  likes="300"/> 
+    </div>
+   
 </template> 
  
 <script setup >
@@ -36,6 +42,8 @@
 // we can use arrow functions easily.
 // we can define any kind of data by using ref.
 import Navbar from "./Navbar.vue";
+import Test from "./Test.vue";
+
 import { ref, reactive, computed, onMounted } from "vue";
 import axios from "axios";
 
@@ -43,7 +51,7 @@ import axios from "axios";
 
 const data = ref([]);
 
-// working fetch logic
+// working fetch logic    (it works like useEffect in react)
 onMounted(async () => {
     const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
     return data.value = res.data
@@ -76,6 +84,14 @@ const isActive = ref(false);
 
 const message = ref("");
 const loading = ref(false);
+
+const showHome = false;
+//  using props in composition api->
+
+defineProps({
+    title: String,
+
+})
 </script>
 
 <style lang="scss" scoped>

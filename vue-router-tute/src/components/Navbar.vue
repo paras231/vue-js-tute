@@ -15,6 +15,10 @@
       </li>
       <li>
         <router-link class="nav-item" to="/api">Composition API</router-link>
+
+      </li>
+      <li>
+        <router-link class="nav-item" to="/test">Test</router-link>
       </li>
     </ul>
   </div>
@@ -25,6 +29,12 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
+@mixin mobile {
+  @media (min-width:320px) and (max-width: 480px) {
+    @content;
+  }
+}
+
 .main-wrapper {
   background-color: rgb(255, 106, 0);
   width: 100%;
@@ -42,6 +52,10 @@ export default {};
   ul>li:hover {
     cursor: pointer;
     color: white;
+  }
+
+  @include mobile {
+    display: none;
   }
 }
 

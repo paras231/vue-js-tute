@@ -2,14 +2,10 @@
   <Navbar />
   <div class="wrapper">
     <form @submit="handleSubmit">
-      <input type="text" placeholder="Username" v-model="formData.username" />
-      <input type="email" placeholder="Email" v-model="formData.email" />
-      <input type="text" placeholder="Phone" v-model="formData.phone" />
-      <input
-        type="password"
-        placeholder="Password"
-        v-model="formData.password"
-      />
+      <input required type="text" placeholder="Username" v-model="formData.username" />
+      <input required type="email" placeholder="Email" v-model="formData.email" />
+      <input required type="text" placeholder="Phone" v-model="formData.phone" />
+      <input required type="password" placeholder="Password" v-model="formData.password" />
       <button type="submit">Submit</button>
     </form>
   </div>
@@ -36,25 +32,25 @@ export default {
     // working properly
     async handleSubmit(e) {
       e.preventDefault();
-       try {
+      try {
         const { data } = await axios.post(
-        "https://travel-andman.herokuapp.com/api/user/signup",
-        {
-          username: this.formData.username,
-          email: this.formData.email,
-          phone: this.formData.phone,
-          password: this.formData.password,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
+          "https://travel-andman.herokuapp.com/api/user/signup",
+          {
+            username: this.formData.username,
+            email: this.formData.email,
+            phone: this.formData.phone,
+            password: this.formData.password,
           },
-        }
-      );
-      console.log(data);
-       } catch(error){
-         console.log(error);
-       }
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 };
@@ -73,7 +69,7 @@ form {
   flex-direction: column;
   gap: 2vmax;
 
-  input {
+  input required {
     width: 16vmax;
   }
 
